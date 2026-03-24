@@ -61,7 +61,7 @@ Based on the detected traffic density, the system can:
 
 ## 🧩 Tech Stack
 
-# Machine Learning:
+### Machine Learning:
 
 * Python
 
@@ -69,7 +69,7 @@ Based on the detected traffic density, the system can:
 
 * OpenCV
 
-# Libraries:
+### Libraries:
 
 * NumPy
 
