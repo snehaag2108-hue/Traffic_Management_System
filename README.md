@@ -10,11 +10,11 @@ The Traffic Management System is designed to monitor live traffic using video fe
 
 Based on the detected traffic density, the system can:
 
-Analyze congestion levels
+* Analyze congestion levels
 
-Provide intelligent traffic signal control (simulation)
+* Provide intelligent traffic signal control (simulation)
 
-Generate real-time insights
+* Generate real-time insights
 
 ---
 
@@ -95,6 +95,7 @@ python -m venv venv
 ▶ Windows:
 
 venv\Scripts\activate
+
 ▶ Mac/Linux:
 
 source venv/bin/activate
