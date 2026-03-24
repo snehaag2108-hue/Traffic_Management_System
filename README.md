@@ -56,3 +56,59 @@ Libraries:
 NumPy
 Pandas (optional)
 Matplotlib (for visualization)
+
+---
+
+⚙️ Setup Instructions
+1️⃣ Clone the Repository
+git clone https://github.com/your-username/traffic-management-system.git
+cd traffic-management-system
+
+2️⃣ Create Virtual Environment
+python -m venv venv
+
+3️⃣ Activate Virtual Environment
+▶ Windows:
+venv\Scripts\activate
+▶ Mac/Linux:
+source venv/bin/activate
+
+4️⃣ Install Dependencies
+pip install flask ultralytics opencv-python numpy
+
+5️⃣ Project Structure
+Traffic-Management-system/
+│
+├── backend/
+│   ├── app.py
+│   └── uploads/
+│       └── yolov8n.pt
+│
+├── frontend/
+│   └── index.html
+│
+├── static/
+│   ├── style.css
+│   └── script.js
+
+▶️ Running the Application
+✅ Method 1: Direct Python Execution
+cd backend
+python app.py
+
+✅ Method 2: Using Flask Command
+▶ Windows (CMD):
+cd backend
+set FLASK_APP=app.py
+flask run
+▶ Windows (PowerShell):
+cd backend
+$env:FLASK_APP="app.py"
+flask run
+▶ Mac/Linux:
+cd backend
+export FLASK_APP=app.py
+flask run
+
+🌐 Open in Browser
+http://127.0.0.1:5000/
