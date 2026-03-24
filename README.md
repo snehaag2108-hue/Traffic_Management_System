@@ -11,67 +11,86 @@ The Traffic Management System is designed to monitor live traffic using video fe
 Based on the detected traffic density, the system can:
 
 Analyze congestion levels
+
 Provide intelligent traffic signal control (simulation)
+
 Generate real-time insights
 
 ---
 
 ## 🎯 What It Does
 
-Detects vehicles in real-time using YOLOv8
-Counts number of vehicles in each lane
-Classifies vehicle types
-Estimates traffic density
-Simulates smart traffic signal timing
+* Detects vehicles in real-time using YOLOv8
+
+* Counts number of vehicles in each lane
+
+* Classifies vehicle types
+
+* Estimates traffic density
+
+* Simulates smart traffic signal timing
 
 ---
 
 ## ⚙️ Features
-🚗 Real-time vehicle detection
-🧠 AI-based traffic density analysis
-📊 Vehicle counting & classification
-🎥 Works on video streams / CCTV footage
-🚦 Smart traffic signal simulation
-📈 Data visualization (optional integration)
+* 🚗 Real-time vehicle detection
+
+* 🧠 AI-based traffic density analysis
+
+* 📊 Vehicle counting & classification
+
+* 🎥 Works on video streams / CCTV footage
+
+* 🚦 Smart traffic signal simulation
+
+* 📈 Data visualization (optional integration)
 
 ---
 
 ## 🧠 Model Used
-YOLOv8 (Ultralytics)
-Fast and accurate object detection
-Pre-trained on COCO dataset
-Detects multiple vehicle classes
+* YOLOv8 (Ultralytics)
+
+* Fast and accurate object detection
+
+* Pre-trained on COCO dataset
+
+* Detects multiple vehicle classes
+
 
 ---
 
 ## 🧩 Tech Stack
 
-Machine Learning:
+* Machine Learning:
 
 Python
+
 YOLOv8 (Ultralytics)
+
 OpenCV
 
-Libraries:
+* Libraries:
 
 NumPy
+
 Pandas (optional)
+
 Matplotlib (for visualization)
 
 ---
 
 ## ⚙️ Setup Instructions
 
-1️⃣ Clone the Repository
+* 1️⃣ Clone the Repository
 
 git clone https://github.com/your-username/traffic-management-system.git
 cd traffic-management-system
 
-2️⃣ Create Virtual Environment
+* 2️⃣ Create Virtual Environment
 
 python -m venv venv
 
-3️⃣ Activate Virtual Environment
+* 3️⃣ Activate Virtual Environment
 
 ▶ Windows:
 
@@ -80,11 +99,11 @@ venv\Scripts\activate
 
 source venv/bin/activate
 
-4️⃣ Install Dependencies
+* 4️⃣ Install Dependencies
 
 pip install flask ultralytics opencv-python numpy
 
-5️⃣ Project Structure
+* 5️⃣ Project Structure
 
 Traffic-Management-system/
 │
@@ -100,14 +119,13 @@ Traffic-Management-system/
 │   ├── style.css
 │   └── script.js
 
-▶️ Running the Application
+* ▶️ Running the Application
 
-* ✅ Method 1: Direct Python Execution
+✅ Method 1: Direct Python Execution
 cd backend
 
 python app.py
-
-* ✅ Method 2: Using Flask Command
+✅ Method 2: Using Flask Command
 
 ▶ Windows (CMD):
 
@@ -125,6 +143,6 @@ cd backend
 export FLASK_APP=app.py
 flask run
 
-🌐 Open in Browser
+* 🌐 Open in Browser
 
 http://127.0.0.1:5000/
