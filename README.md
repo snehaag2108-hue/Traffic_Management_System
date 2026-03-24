@@ -124,35 +124,35 @@ Traffic-Management-system/
 
 ✅ Method 1: Direct Python Execution
 
-cd backend
+* cd traffic-management-system/backend
 
-python app.py
+* python app.py
 
 ✅ Method 2: Using Flask Command
 
 ▶ Windows (CMD):
 
-cd backend
+* cd backend
 
-set FLASK_APP=app.py
+* set FLASK_APP=app.py
 
-flask run
+* flask run
 
 ▶ Windows (PowerShell):
 
-cd backend
+* cd backend
 
-$env:FLASK_APP="app.py"
+* $env:FLASK_APP="app.py"
 
-flask run
+* flask run
 
 ▶ Mac/Linux:
 
-cd backend
+* cd backend
 
-export FLASK_APP=app.py
+* export FLASK_APP=app.py
 
-flask run
+* flask run
 
 * 🌐 Open in Browser
 
