@@ -1,10 +1,10 @@
-🚦 Traffic Management System using YOLOv8
+## 🚦 Traffic Management System using YOLOv8
 
 An AI-powered Traffic Management System that uses YOLOv8 (You Only Look Once) for real-time vehicle detection, traffic density analysis, and smart traffic control.
 
 This project leverages computer vision to improve traffic efficiency, reduce congestion, and support smart city infrastructure.
 
-📌 Project Description
+## 📌 Project Description
 
 The Traffic Management System is designed to monitor live traffic using video feeds or recorded footage. It uses the YOLOv8 object detection model to identify vehicles such as cars, buses, trucks, and bikes.
 
@@ -16,7 +16,8 @@ Generate real-time insights
 
 ---
 
-🎯 What It Does
+## 🎯 What It Does
+
 Detects vehicles in real-time using YOLOv8
 Counts number of vehicles in each lane
 Classifies vehicle types
@@ -25,7 +26,7 @@ Simulates smart traffic signal timing
 
 ---
 
-⚙️ Features
+## ⚙️ Features
 🚗 Real-time vehicle detection
 🧠 AI-based traffic density analysis
 📊 Vehicle counting & classification
@@ -35,7 +36,7 @@ Simulates smart traffic signal timing
 
 ---
 
-🧠 Model Used
+## 🧠 Model Used
 YOLOv8 (Ultralytics)
 Fast and accurate object detection
 Pre-trained on COCO dataset
@@ -43,7 +44,7 @@ Detects multiple vehicle classes
 
 ---
 
-🧩 Tech Stack
+## 🧩 Tech Stack
 
 Machine Learning:
 
@@ -59,7 +60,7 @@ Matplotlib (for visualization)
 
 ---
 
-⚙️ Setup Instructions
+## ⚙️ Setup Instructions
 
 1️⃣ Clone the Repository
 
@@ -101,12 +102,12 @@ Traffic-Management-system/
 
 ▶️ Running the Application
 
-✅ Method 1: Direct Python Execution
+* ✅ Method 1: Direct Python Execution
 cd backend
 
 python app.py
 
-✅ Method 2: Using Flask Command
+* ✅ Method 2: Using Flask Command
 
 ▶ Windows (CMD):
 
