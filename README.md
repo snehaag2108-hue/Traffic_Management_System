@@ -61,21 +61,21 @@ Based on the detected traffic density, the system can:
 
 ## 🧩 Tech Stack
 
-* Machine Learning:
+# Machine Learning:
 
-Python
+* Python
 
-YOLOv8 (Ultralytics)
+* YOLOv8 (Ultralytics)
 
-OpenCV
+* OpenCV
 
-* Libraries:
+# Libraries:
 
-NumPy
+* NumPy
 
-Pandas (optional)
+* Pandas (optional)
 
-Matplotlib (for visualization)
+* Matplotlib (for visualization)
 
 ---
 
