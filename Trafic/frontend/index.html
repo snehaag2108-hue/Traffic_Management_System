@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic & Parking Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+
+
+    <!-- Leaflet (FREE MAP) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body id="app-body">
+
+<nav id="sidebar">
+    <div class="brand">
+        <i class="fas fa-car-side"></i>
+        <span>TPMS v2.0</span>
+    </div>
+
+    <div class="nav-links">
+        <div class="nav-link active" onclick="showPage('dashboard',this)">
+            <i class="fas fa-th-large"></i> Dashboard
+        </div>
+        <div class="nav-link" onclick="showPage('traffic',this)">
+            <i class="fas fa-traffic-light"></i> Traffic Monitoring
+        </div>
+        <div class="nav-link" onclick="showPage('parking',this)">
+            <i class="fas fa-parking"></i> Parking Management
+        </div>
+        <div class="nav-link" onclick="showPage('reports',this)">
+            <i class="fas fa-chart-bar"></i> Reports & Analytics
+        </div>
+    </div>
+</nav>
+
+<main id="main-content">
+
+<header class="main-header">
+    <h1 id="dynamic-title">Dashboard</h1>
+    <div class="admin-panel">
+        <div class="admin-info">
+            <span class="admin-name">Admin User</span>
+            <span class="admin-role">Super Admin</span>
+        </div>
+        <img src="https://ui-avatars.com/api/?name=Admin&background=3262d6&color=fff"
+             alt="Profile"
+             class="admin-avatar">
+        <button class="logout-btn" onclick="handleLogout()" title="Logout">
+            <i class="fas fa-power-off"></i>
+        </button>
+    </div>
+</header>
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard" class="page-section active">
+
+    <div class="card">
+        <h3><i class="fas fa-video"></i> Video Input</h3>
+
+        <div class="input-grid">
+            <label class="btn-action upload-label">
+                <i class="fas fa-cloud-upload-alt"></i> Upload Video
+                <input type="file" id="videoInput" accept="video/*" hidden>
+            </label>
+
+            <div class="url-bar">
+                <i class="fas fa-link"></i>
+                <input type="text" placeholder="rtsp://192.168.1.10:554/stream" id="rtspInput">
+            </div>
+        </div>
+
+        <button class="btn-primary" type="button" id="startBtn" onclick="startDetection()">
+            Start Detection
+        </button>
+
+        <p class="status-indicator">
+            Status: <span id="detectionStatus">Idle</span>
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Live Feed Reference</h3>
+        <div class="video-window">
+            <video id="videoPreview" controls style="display:none; width:100%;"></video>
+            <img id="liveFeed" src="" style="display:none; width:100%; border-radius:8px;">
+            <div id="videoPlaceholder">Waiting for Input...</div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= TRAFFIC MONITORING ================= -->
+
+<section id="traffic" class="page-section">
+
+    <div class="monitor-container">
+
+        <!-- LEFT SIDE MAP -->
+        <div class="main-monitor">
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fas fa-map"></i> Live Road Map View</h3>
+                    <span class="live-indicator">● LIVE</span>
+                </div>
+
+                <div class="video-window" style="padding:0;">
+                    <div id="map" style="height:100%; width:100%;"></div>
+                </div>
+
+                <button class="btn-primary"
+                        onclick="addUserLocation()"
+                        style="margin-top:15px;">
+                    📍 Show My Live Location
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE STATS -->
+        <div class="side-monitor">
+
+            <!-- AVG SPEED -->
+            <div class="card stat-card">
+                <h4>Avg Flow Speed</h4>
+                <div class="speed-gauge">
+                    <span id="avgSpeed">0</span> <small>km/h</small>
+                </div>
+                <div class="speed-bar">
+                    <div class="fill" id="speedFill"></div>
+                </div>
+            </div>
+
+            <!-- TOTAL VEHICLES -->
+            <div class="card stat-card">
+                <h4>Total Vehicles</h4>
+                <div class="speed-gauge">
+                    <span id="totalVehicles">0</span>
+                </div>
+            </div>
+
+            <!-- VEHICLE BREAKDOWN -->
+            <div class="card stat-card">
+                <h4>Vehicle Breakdown</h4>
+                <p>🚗 Cars: <span id="carCount">0</span></p>
+                <p>🏍 Bikes: <span id="bikeCount">0</span></p>
+                <p>🚌 Buses: <span id="busCount">0</span></p>
+                <p>🚚 Trucks: <span id="truckCount">0</span></p>
+                <p>🚲 Bicycles: <span id="bicycleCount">0</span></p>
+            </div>
+
+            <!-- VIOLATIONS -->
+            <div class="card stat-card">
+                <h4>Overspeed Violations</h4>
+                <div class="speed-gauge">
+                    <span id="violationCount">0</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PARKING ================= -->
+
+<section id="parking" class="page-section">
+    <div class="card">
+        <h3>Parking Occupancy (Real-time)</h3>
+        <div class="parking-grid" id="parkingGrid"></div>
+    </div>
+</section>
+
+<!-- ================= REPORTS ================= -->
+
+<section id="reports" class="page-section">
+    <div class="report-grid">
+
+        <div class="card report-box">
+            <i class="fas fa-car-side fa-2x"></i>
+            <h3>Traffic History</h3>
+            <p>Daily vehicle count and peak hour metrics.</p>
+            <button class="btn-excel" onclick="downloadExcel('Traffic_Report')">
+                <i class="fas fa-file-excel"></i> Download Excel
+            </button>
+        </div>
+
+        <div class="card report-box">
+            <i class="fas fa-parking fa-2x"></i>
+            <h3>Parking Logs</h3>
+            <p>Slot turnover and duration analysis.</p>
+            <button class="btn-excel" onclick="downloadExcel('Parking_Report')">
+                <i class="fas fa-file-excel"></i> Download Excel
+            </button>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
